@@ -46,6 +46,7 @@
 
     <div class="site-logo"><?php echo SITE_NAME; ?></div>
     <nav role="navigation" class="nav main-nav">
+      <a class="screen-reader-text hide" href="#content">Skip to content</a>
       <?php wp_nav_menu( array( 'menu' => 'Main-Nav','container' => false ) ); ?>
     </nav>
 
