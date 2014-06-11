@@ -26,10 +26,14 @@ remove_action( 'wp_head', 'feed_links_extra', 3 ); // Display the links to the e
  */
 function category_id_class( $classes ) {
   global $post;
-  foreach ( get_the_category( $post->ID) as $category ) {
-    $classes[] = $category->category_nicename;
+
+  if ( has_category( $post->ID ) ) {
+    foreach ( get_the_category( $post->ID ) as $category ) {
+      $classes[] = $category->category_nicename;
     }
-  return $classes;
+
+    return $classes;
+  }
 }
 add_filter( 'post_class', 'category_id_class' );
 add_filter( 'body_class', 'category_id_class' );
